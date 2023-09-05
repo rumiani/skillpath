@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { eventType, initialStateTypes } from './interfaces'
+import { initialStateTypes } from './interfaces'
 
 const initialState: initialStateTypes = {
   user: {
@@ -12,44 +12,31 @@ const initialState: initialStateTypes = {
     joinTime:'',
     permission:true,
     loggedIn:false,
-    des:'',
     linkedIn:'',
     twitter:''
   },
   users:[],
-  event: {
+  post: {
     id: '',
-    location: '',
-    start: '',
-    end: '',
+    author:'',
     title: '',
     status:'',
-    mentor: {
-      id:'',
-      attendance:true,
-    },
-    mentee: {
-      id:'',
-      attendance:true,
-    },
-    canceler: {
-      id:'',
-      des:''
-    },
+    body:'',
+    src: '',
+    createdAt:''
   },
-  events:[],
-  eventClickedId:null,
+  posts:[],
 }
 
 export const appStateSlice = createSlice({
   name: 'appState',
   initialState,
   reducers: {
-    userReducer: (state, action: PayloadAction<eventType>) => {          
-      state.event = action.payload
+    userReducer: (state, action: PayloadAction) => {          
+      state.user = action.payload
     },
-    usersReducer: (state, action: PayloadAction<eventType>) => {          
-      state.event = action.payload
+    postReducer: (state, action: PayloadAction) => {          
+      state.posts = action.payload
     },
     eventClickedIdReducer: (state, action: PayloadAction<string | null>) => {          
       state.eventClickedId = action.payload
