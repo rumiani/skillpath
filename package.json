@@ -1,5 +1,5 @@
 {
-  "name": "blog",
+  "name": "skillpath",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:5000",
@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-oauth/google": "^0.11.1",
     "@reduxjs/toolkit": "^1.9.5",
     "@types/node": "20.5.9",
     "@types/react": "18.2.21",
@@ -23,9 +24,12 @@
     "postcss": "8.4.29",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.46.1",
+    "react-quill": "^2.0.0",
     "react-redux": "^8.1.2",
     "react-toastify": "^9.1.3",
     "tailwindcss": "3.3.3",
+    "tw-elements": "^1.0.0-rc.1",
     "typescript": "5.2.2"
   }
 }

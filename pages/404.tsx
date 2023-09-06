@@ -6,9 +6,9 @@ const NotFound: React.FC = () => {
         <>
          <Head>
             <link rel="icon" href="/assets/favicon.ico" /> 
-            <title>404</title>
+            <title>SkillPath |404</title>
             <meta name="author" content="Maziar Rumiani" />
-            <meta name="keywords" content="Mentor, mentorship" />
+            <meta name="keywords" content="skill, skillpath" />
             <meta name="description" content="Nothing is here" />
         </Head>
       <main>
