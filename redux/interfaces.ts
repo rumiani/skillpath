@@ -10,19 +10,17 @@ export interface userTypes {
     linkedIn:string
     twitter:string
 }
-export interface postType {
-    id:string, 
-    author:string,
+export interface pathType {
     title:string, 
     body:string,
+    length:number,
     src:string,
-    status:string,
-    createdAt:string,
+    tags:string[],
 }
 
 export interface initialStateTypes {
     user:userTypes,
     users:userTypes[],
-    post: postType,
-    posts: postType[],
+    path: pathType,
+    paths: pathType[],
 }

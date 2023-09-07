@@ -3,33 +3,25 @@ import TitleInput from './titleInput/titleInput'
 import TagsInput from './tagsInput/tagsInput'
 import TextInput from './textInput/TextInput'
 import {toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
 
 const Form = () => {
-    const [richTextValue, setRichTextValue] = useState<JSX.Element>();
-    const [length, setLength] = useState(1);
-    const limit = 200
+    const {path} = useSelector( state => state.appState)
+
     const submitHandler = (event:FormEvent) =>{
         event.preventDefault()
-        console.log(event.target[0].value);
-        console.log(event.target[1].value);
-        console.log(richTextValue);
-        if(length > limit){
-            return toast.error(`The text length must not be more than ${limit} characters`, {position: toast.POSITION.TOP_RIGHT})
+        console.log(path);
+        
+        if(path.length > 5000 || path.length < 300){
+            return toast.error(`The text length must be between 300-5000 characters`, {position: toast.POSITION.TOP_RIGHT})
         }
     }
-    const handleRichTextChange = ({html, length}:{html:JSX.Element,length:number}) => {
-        setRichTextValue(html);
-        setLength(length)
 
-
-      };
   return (
     <form onSubmit={submitHandler} className='bg-white rounded-xl p-2 md:p-4 flex flex-col justify-center'>
-        <div className='w-full flex wrap gap-4  '>
-            <TitleInput/>
-            <TagsInput/>
-        </div>
-        <TextInput onRichTextChange={handleRichTextChange}/>
+        <TitleInput/>
+        <TextInput/>
+        {path.length >= 300 && <TagsInput/>}
 
         <button type="submit" className='primaryBtn  mx-auto'>
             Publish

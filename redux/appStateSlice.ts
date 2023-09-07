@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { initialStateTypes } from './interfaces'
+import { initialStateTypes, pathType } from './interfaces'
 
 const initialState: initialStateTypes = {
   user: {
@@ -16,42 +16,28 @@ const initialState: initialStateTypes = {
     twitter:''
   },
   users:[],
-  post: {
-    id: '',
-    author:'',
+  path: {
     title: '',
-    status:'',
     body:'',
+    length:1,
     src: '',
-    createdAt:''
+    tags:[],
   },
-  posts:[],
+  paths:[],
 }
 
 export const appStateSlice = createSlice({
   name: 'appState',
   initialState,
   reducers: {
-    userReducer: (state, action: PayloadAction) => {          
-      state.user = action.payload
-    },
-    postReducer: (state, action: PayloadAction) => {          
-      state.posts = action.payload
-    },
-    eventClickedIdReducer: (state, action: PayloadAction<string | null>) => {          
-      state.eventClickedId = action.payload
-    },
-    eventsReducer: (state, action: PayloadAction<[]>) => {                
-      state.events = action.payload
-    },
+    pathReducer: (state, action: PayloadAction<object>) => {  
+      state.path = { ...state.path, ...action.payload}
+    }
   },
 })
 
 export const { 
-  userReducer, 
-  usersReducer, 
-  eventClickedIdReducer,
-  eventsReducer,
+  pathReducer, 
 } = appStateSlice.actions
 
 export default appStateSlice.reducer
