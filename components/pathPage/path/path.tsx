@@ -1,4 +1,5 @@
 import React from 'react'
+import _ from 'lodash'
 const pathObj ={
                     body: "<p>asfd sfasd fsdfa fdsfasfd sfasd fsdfa fdsfasfd sfasd fsdfa fdsfasfd sfasd fsdfa fdsfasfd sfasd fsdfa fdsfasfd sfasd fsdfa fdsfasfd sfasd fsdfa fdsfasfd sfasd fsdfa fdsfasfd sfasd fsdfa fdsfasfd sfasd fsdfa fdsfasfd sfasd fsdfa fdsfasfd sfasd fsdfa fdsfasfd sfasd fsdfa fdsfasfd sfasd fsdfa fdsfasfd sfasd fsdfa fdsfa</p>",
                     length: 317,
@@ -10,7 +11,9 @@ const pathObj ={
 const Path = () => {
   return (
     <div className='my-4'>
-        <h1 className='text-center font-bold text-2xl my-4' >{pathObj.title}</h1>
+        <h1 className='text-center font-bold text-2xl my-4' >
+          {_.capitalize(pathObj.title)}
+        </h1>
         <div className='text-base'
          dangerouslySetInnerHTML={{__html: pathObj.body}}>
         </div> 
