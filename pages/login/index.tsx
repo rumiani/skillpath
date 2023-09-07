@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import React from 'react'
 
-const LoginPage = () => {
+const Index = () => {
   return (
     <>
       <Head>
@@ -34,4 +34,4 @@ const LoginPage = () => {
   )
 }
 
-export default LoginPage
+export default Index

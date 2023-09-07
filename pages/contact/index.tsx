@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { FormEvent, useState } from "react";
 
-export default function Contact() {
+const Index = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -91,4 +91,4 @@ export default function Contact() {
       </>
     )
   }
-  
+  export default Index;

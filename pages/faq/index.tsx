@@ -27,7 +27,7 @@ const q = [
         a:'این یک پاسخ کوتاه در جواب سوال بالا می‌باشد. برای اطلاعات بیشتر میتوانید با ما تماس حاصل فرمایید تا در اسرع وقت به شما پاسخ داده شود. با تشکر از شما بابت خواندن پاسخ سوال بالا.'
     },
 ]
-const Faq = () => {
+const Index = () => {
     const [openId, setOpenId] = useState<number | null>(null);
 
     const opendAnswerHandler = (id:number) => {
@@ -64,4 +64,4 @@ const Faq = () => {
   )
 }
 
-export default Faq
+export default Index

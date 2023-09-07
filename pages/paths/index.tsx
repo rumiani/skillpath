@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Paths = () => {
+const Index = () => {
   return (
-    <div>Paths</div>
+    <div>Index</div>
   )
 }
 
-export default Paths
+export default Index
