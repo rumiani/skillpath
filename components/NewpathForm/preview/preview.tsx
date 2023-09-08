@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux';
 import _ from 'lodash'
+import he from 'he';
+
 const Preview = () => {
     const {path} = useSelector(state => state.appState)
     const dialogElement = useRef(null);
@@ -32,7 +34,7 @@ const Preview = () => {
                     {path.intro}
                 </p>
                 <div className='text-base'
-                    dangerouslySetInnerHTML={{__html: path.body}}>
+                    dangerouslySetInnerHTML={{__html: he.decode(path.body)}}>
                 </div> 
                 <div className='my-4'>
                     {path.tags.length > 0 && 'Tags:' }<br />
@@ -42,7 +44,6 @@ const Preview = () => {
                 </div>
                 <button id='close' className='primaryBtn'>Back</button>
             </div>
-            <p>&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/2zRHlqc0_yw?si=eoO97YjzcOaCqVMJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen&gt;&lt;/iframe&gt;</p>
         </dialog>
     </div>
   )
