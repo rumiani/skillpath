@@ -46,19 +46,22 @@ const Index = () => {
                 <h2 className="text-2xl font-semibold mb-4">سوالات متداول:</h2>
             {q.map( (item, index) =>{
                 return (
-                    <div key={item.id} className="border-b border-gray-300 py-2">
-                        <button onClick={() => opendAnswerHandler(item.id)} className="flex items-center justify-between w-full">
+                    <div key={item.id} className=" border-b border-gray-300 py-2">
+                        <button onClick={() => opendAnswerHandler(item.id)} 
+                        
+                        className="flex items-center justify-between w-full">
                             <span className="text-lg font-medium">- {item.q}</span>
                             <span className="text-gray-500 text-xl">{openId === item.id ?  '-':'+'}</span>
                         </button>
                         {openId === item.id &&
-                            <div className="mt-2">
+                            <div className="mt-2 transition-all duration-300">
                                 <p className="text-gray-600" >{item.a}</p>
                             </div>
                         }
                     </div>
                 )
             })}
+
         </div>
     </>
   )

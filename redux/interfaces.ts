@@ -12,7 +12,6 @@ export interface userTypes {
 }
 export interface pathType {
     title:string,
-    intro:string, 
     body:string,
     length:number,
     src:string,

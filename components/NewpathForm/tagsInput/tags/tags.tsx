@@ -7,13 +7,13 @@ const Tags = () => {
     const {path} = useSelector((state:any) => state.appState)
     
   return (
-    <div className='flex flex-wrap justify-center mx-auto w-full'>
+    <>
         {path.tags.map( (tag:string, index:string) => {
             return (
                 <Tag key={index} tag={tag}/>
             )
         })}
-    </div>
+    </>
   )
 }
 

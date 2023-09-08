@@ -42,6 +42,15 @@ body {
   @apply text-blue-500 hover:underline;
 }
 .ql-editor{
-  min-height:200px;
-  max-height: 400px;
+  min-height:100px;
+  font-size: 16px;
+}
+.quill ol{
+  list-style-type: decimal;
+  padding-left: 30px;
+}
+.quill ul{
+  list-style-type:disc;
+  padding-left: 30px;
+
 }

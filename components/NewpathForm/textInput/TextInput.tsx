@@ -45,9 +45,9 @@ const TextInput = () => {
       },[])
   return (
     <div className="w-full  mx-auto my-2">
-      <div onDrop={(e) => e.preventDefault()} className="relative w-full min-w-[200px]">
+      <div onDrop={(e) => e.preventDefault()} className="relative w-full min-w-[200px] text-lg">
           <ReactQuill
-            className='quill'
+            className='quill '
             onChange={handleEditorChange}
             value={path.body}
             modules={modules}
@@ -55,9 +55,6 @@ const TextInput = () => {
             theme="bubble"
             placeholder="Write your path here step by step..."
           />
-          <p className={`${path.length < 300|| path.length>5000?'text-red-600':'text-black'}`}>
-            {path.length}/300-5000
-          </p>
       </div>
     </div>
   )

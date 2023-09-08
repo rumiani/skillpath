@@ -7,18 +7,17 @@ import { fullScreen } from './fullScreen';
 const Preview = () => {
     const {path} = useSelector(state => state.appState)
     const dialogElement = useRef(null);
-    const pathlement = useRef(null);
+    const pathlement = useRef<HTMLDialogElement | null>(null);
 
     const showModalHnadler = () => {
-      dialogElement.current!.showModal();
+      dialogElement.current?.showModal();
     };
 
     useEffect(() =>{
         
         onclick = (event) => {
             if (event.target === dialogElement.current || event.target.id === 'close')
-            dialogElement.current!.close();
-
+                dialogElement.current!.close();
             if(event.target!.id === 'fullscreen') fullScreen(pathlement.current)
         };
     },[])
@@ -29,15 +28,12 @@ const Preview = () => {
          style={{background:'gray'}} className='primaryBtn mx-auto mb-4'>
             Preview
         </button>
-        <dialog  ref={dialogElement} className='rounded-lg p-2 sm:p-4'>
+        <dialog  ref={dialogElement} className='rounded-lg p-2 sm:p-4 w-full h-full'>
             <div ref={pathlement} className='quill my-4 p-4 '>
                 <h2 className='font-bold text-gray-500'>Preview</h2>
                 <h1 className='text-center font-bold text-2xl my-4' >
                     {_.capitalize(path.title)}
                 </h1>
-                <p className='font-semibold my-4'>
-                    {path.intro}
-                </p>
                 <div className='text-base'
                     dangerouslySetInnerHTML={{__html: he.decode(path.body)}}>
                 </div> 

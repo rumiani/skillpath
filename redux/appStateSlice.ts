@@ -19,7 +19,6 @@ const initialState: initialStateTypes = {
   path: {
     title: '',
     body:'',
-    intro:'',
     length:1,
     src: '',
     tags:[],
