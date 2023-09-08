@@ -4,8 +4,10 @@ import TagsInput from './tagsInput/tagsInput'
 import TextInput from './textInput/TextInput'
 import {toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
+import IntroInput from './intro/intro';
+import Preview from './preview/preview';
 
-const Form = () => {
+const NewpathForm = () => {
     const {path} = useSelector( state => state.appState)
 
     const submitHandler = (event:FormEvent) =>{
@@ -18,16 +20,19 @@ const Form = () => {
     }
 
   return (
-    <form onSubmit={submitHandler} className='bg-white rounded-xl p-2 md:p-4 flex flex-col justify-center'>
-        <TitleInput/>
-        <TextInput/>
-        {path.length >= 300 && <TagsInput/>}
-
-        <button type="submit" className='primaryBtn  mx-auto'>
-            Publish
-        </button>
-    </form>
+    <div>
+        <form onSubmit={submitHandler} className='bg-white rounded-xl p-2 md:p-4 flex flex-col justify-center'>
+            <TitleInput/>
+            <IntroInput/>
+            <TextInput/>
+            {path.length >= 300 && <TagsInput/>}
+            <button type="submit" className='primaryBtn  mx-auto'>
+                Publish
+            </button>
+        </form>
+        <Preview/>
+    </div>
   )
 }
 
-export default Form
+export default NewpathForm

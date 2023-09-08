@@ -11,7 +11,8 @@ export interface userTypes {
     twitter:string
 }
 export interface pathType {
-    title:string, 
+    title:string,
+    intro:string, 
     body:string,
     length:number,
     src:string,

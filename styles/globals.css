@@ -35,3 +35,10 @@ body {
 .quill img{
   @apply rounded-lg w-3/4 h-auto mx-auto;
 }
+.quill a{
+  @apply text-blue-500 hover:underline;
+}
+.ql-editor{
+  min-height:200px;
+  max-height: 400px;
+}
