@@ -39,11 +39,13 @@ body {
   content: "\a";
 }
 .quill a{
-  @apply text-blue-500 hover:underline;
+  @apply  text-blue-500 hover:underline;
 }
 .ql-editor{
-  min-height:100px;
+  /* background: rgba(128, 128, 128, 0.101); */
+  min-height:50px;
   font-size: 16px;
+  padding: 15px !important;
 }
 .quill ol{
   list-style-type: decimal;
@@ -52,5 +54,4 @@ body {
 .quill ul{
   list-style-type:disc;
   padding-left: 30px;
-
 }

@@ -16,8 +16,8 @@ const TagsInput = () => {
         
         if(lastChar === ','|| lastChar === '-' || e.key === 'Enter'){
             const newTag = (e.key === 'Enter') ? str:str.slice(0, -1)
-            if(newTag.length > 10 || newTag.length < 5 ){
-                return toast.error(`The tag length must be 5-10 characters`, {position: toast.POSITION.TOP_RIGHT, toastId: 'error1'},)
+            if(newTag.length > 10 || newTag.length < 4 ){
+                return toast.error(`The tag length must be 4-10 characters`, {position: toast.POSITION.TOP_RIGHT, toastId: 'error1'},)
             }
             if(path.tags.length > 4){
                 return toast.error(`Can not add more than 5 tags`, {position: toast.POSITION.TOP_RIGHT})
@@ -33,7 +33,7 @@ const TagsInput = () => {
             <Tags/>
             <input
                 id='inputTag'
-                className="max-[100px] text-xl outline outline-0 transition-all border-none   focus:outline-0 "
+                className="max-[100px] p-1 focus:bg-gray-100 text-xl outline outline-0 transition-all border-none   focus:outline-0 "
                 placeholder="Add a tag..."
                 onChange={tagsStoreHandler}
                 onKeyUp={tagsStoreHandler}

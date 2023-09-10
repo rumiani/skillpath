@@ -14,7 +14,7 @@ const TitleInput = () => {
     <div className="w-full mx-auto my-2">
         <input
           id='inputTitle'
-          className="w-full  text-2xl font-bold outline outline-0 transition-all border-none   focus:outline-0 "
+          className="w-full p-1 focus:bg-gray-100 text-2xl font-bold outline outline-0 transition-all border-none   focus:outline-0 "
           placeholder="Write a title here..."
           onInput={inputChangeHandler}
           autoFocus={true}
