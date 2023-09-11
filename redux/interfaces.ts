@@ -14,7 +14,6 @@ export interface pathType {
     title:string,
     body:string,
     length:number,
-    src:string,
     tags:string[],
 }
 

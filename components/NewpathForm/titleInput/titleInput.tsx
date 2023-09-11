@@ -18,6 +18,7 @@ const TitleInput = () => {
           placeholder="Write a title here..."
           onInput={inputChangeHandler}
           autoFocus={true}
+          value={path.title}
         />
     </div>
   )

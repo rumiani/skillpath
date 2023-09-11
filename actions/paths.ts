@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import * as api from './../pages/api/api';
 import { pathReducer } from '@/redux/appStateSlice';
 
@@ -5,10 +6,13 @@ export const createPath = (path) => async (dispatch) =>{
     try {
         const pathData = await api.createPath(path)
         const data = await pathData.json()
-        console.log(data);
-        
-        dispatch(pathReducer(data))
+        const url = data.url
+        if(url){
+            return dispatch(pathReducer({title: '', body:'', length:0, url, tags:[],}))
+        }else{
+            toast.error(data.message)
+        }
     } catch (error) {
-        console.log(error);
+        throw new Error(error.message)
     }
 }

@@ -18,9 +18,9 @@ export default function Home() {
       >
       <div className="z-10 p-2 max-w-5xl w-full items-center justify-between font-mono text-sm">
         <Link href='/newpath'>
-        <button  className='primaryBtn'>
-          New Path
-        </button>
+          <button  className='primaryBtn'>
+            New Path
+          </button>
         </Link>
         <Paths/>
       </div>

@@ -20,7 +20,6 @@ const initialState: initialStateTypes = {
     title: '',
     body:'',
     length:1,
-    src: '',
     tags:[],
   },
   paths:[],

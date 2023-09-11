@@ -45,7 +45,6 @@ const TextInput = () => {
     <div className="w-full  mx-auto my-2">
       <div onDrop={(e) => e.preventDefault()} className="relative w-full min-w-[200px] text-lg">
           <ReactQuill
-          
             className='quill'
             onChange={handleEditorChange}
             value={path.body}

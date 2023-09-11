@@ -1,7 +1,7 @@
-const url = 'http://localhost:5000/newpath';
+const url = 'http://localhost:5000/';
 
 export const fetchPath = () => fetch(url)
-export const createPath = (pathData) => fetch( url , {
+export const createPath = (pathData) => fetch( url + 'newpath' , {
     method: 'POST',
     headers: { 'Content-Type': 'application/json',},
     body: JSON.stringify(pathData), 
