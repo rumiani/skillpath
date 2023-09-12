@@ -8,6 +8,7 @@ import Preview from './preview/preview';
 import _ from 'lodash';
 import { createPath } from '@/actions/paths';
 import Link from 'next/link';
+import { pathReducer, resetPathReducer } from '@/redux/appStateSlice';
 
 const NewpathForm = () => {
     const {path} = useSelector( state => state.appState)
@@ -15,6 +16,7 @@ const NewpathForm = () => {
     const dialogElement = useRef()
     const[sending, setSending] = useState(false)
     const submitHandler = async (event:FormEvent) =>{
+        setSending(true)
         if (event.key === "Enter") {
             event.preventDefault(); // Prevent the default form submission behavior
           }
@@ -31,18 +33,19 @@ const NewpathForm = () => {
             return toast.error(`Please add a tag.`, {position: toast.POSITION.TOP_RIGHT})
         }
         // console.log(path);
-        dialogElement.current.showModal()
+        setSending(false)
         dispatch(createPath(path))
-
-        // console.log();
-        // dispatch(pathReducer({title: '', body:'', length:1, url, tags:[],}))        
+        if(path.url){
+            dialogElement.current.showModal()
+        }
     }
-useEffect(() =>{
-    onclick = (event) => {
-        if (event.target === dialogElement.current)
-        dialogElement.current!.close();
-    }
-},[])
+    useEffect(() =>{
+        dispatch(resetPathReducer())        
+    // onclick = (event) => {
+    //     if (event.target === dialogElement.current)
+    //     dialogElement.current!.close();
+    // }
+},[dispatch])
   return (
     <div>
         <div className='bg-white rounded-xl p-2 md:p-4 flex flex-col justify-center'>
@@ -59,9 +62,11 @@ useEffect(() =>{
         <dialog ref={dialogElement} className='p-24'>
             <Link href={'path/'+path.url || '/'} className='text-blue-400 underline'>
                 See the path
-                <p>{'path/'+path.url}</p>
                 </Link>
-            <button onClick={() => dialogElement.current.close()}>New Path</button>
+            <button className='primaryBtn'
+                onClick={() => dialogElement.current.close()}>
+                New Path
+            </button>
         </dialog>
         <Preview/>
     </div>

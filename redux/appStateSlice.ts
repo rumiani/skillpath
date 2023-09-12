@@ -16,7 +16,8 @@ const initialState: initialStateTypes = {
     twitter:''
   },
   users:[],
-  path: {
+  path:{
+    id:'',
     title: '',
     body:'',
     length:1,
@@ -31,12 +32,16 @@ export const appStateSlice = createSlice({
   reducers: {
     pathReducer: (state, action: PayloadAction<object>) => {  
       state.path = { ...state.path, ...action.payload}
+    },
+    resetPathReducer: (state) => {  
+      state.path = initialState.path
     }
   },
 })
 
 export const { 
   pathReducer, 
+  resetPathReducer
 } = appStateSlice.actions
 
 export default appStateSlice.reducer

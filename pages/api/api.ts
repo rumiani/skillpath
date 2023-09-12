@@ -6,3 +6,8 @@ export const createPath = (pathData) => fetch( url + 'newpath' , {
     headers: { 'Content-Type': 'application/json',},
     body: JSON.stringify(pathData), 
   })
+export const deletePath = (pathUrl) => fetch(url+pathUrl,{
+  method: 'DELETE',
+  headers: { 'Content-Type': 'application/json',},
+  body: JSON.stringify(pathUrl), 
+})

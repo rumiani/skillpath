@@ -7,6 +7,8 @@ export const createPath = (path) => async (dispatch) =>{
         const pathData = await api.createPath(path)
         const data = await pathData.json()
         const url = data.url
+        console.log(data);
+        
         if(url){
             return dispatch(pathReducer({title: '', body:'', length:0, url, tags:[],}))
         }else{

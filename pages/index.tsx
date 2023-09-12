@@ -1,9 +1,16 @@
-import NewPath from '@/components/newPath/newPath'
-import Paths from '@/components/paths/paths'
+import HomePage from '@/components/homePage/homePage'
 import Head from 'next/head'
 import Link from 'next/link'
 
-export default function Home() {
+export const getStaticProps = async () =>{
+  const res = await fetch('http://localhost:5000')
+  const data = await res.json()
+  return {
+    props: {paths: data}
+  }
+}
+
+export default function index({paths}) {
   return (
     <>
       <Head>
@@ -22,7 +29,7 @@ export default function Home() {
             New Path
           </button>
         </Link>
-        <Paths/>
+        <HomePage paths={paths}/>
       </div>
     </main>
       </>

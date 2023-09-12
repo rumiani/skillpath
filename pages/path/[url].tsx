@@ -17,10 +17,9 @@ const Index = () => {
     )
     .catch( error => console.log(error)
     )
-  },[router, uniqueUrl])
+  },[router, uniqueUrl, dispatch])
   return (
     <div>
-      path get
         <PathPage/>
     </div>
   )
