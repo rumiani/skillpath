@@ -31,7 +31,7 @@ const NewpathForm = () => {
         tag: "",
       },
     },
-    mode: "onChange",
+    mode: "onBlur",
   });
   const {
     register,
@@ -44,15 +44,20 @@ const NewpathForm = () => {
   } = form;
   const { errors, isSubmitting, isSubmitSuccessful } = formState;
 
-  const submitHandler = (data: FormValues) => {
-    // console.log('submited',data);
+  const submitHandler = (data: FormValues,e) => {
+        // data.preventDefault();
+        
+    // if (data.key === 'Enter') {
+    //     // console.log(data);
+    //   }
+    console.log('submited',data);
   };
 
   useEffect(() => {
     // console.log(getValues());
     // console.log(setValue('title','maziar'));
     const subscription = watch((value) => {
-      console.log("form values", value);
+    //   console.log("form values", value);
     });
     return () => subscription.unsubscribe;
   }, [watch, reset, isSubmitSuccessful, setValue, getValues]);
@@ -99,6 +104,7 @@ const NewpathForm = () => {
           watch={watch}
           register={register}
           setValue={setValue}
+          getValues={getValues}
         />
 
         <TagsInput
@@ -116,7 +122,7 @@ const NewpathForm = () => {
           Publish
         </button>
       </form>
-      <Preview />
+      <Preview getValues={getValues}/>
     </div>
   );
 };

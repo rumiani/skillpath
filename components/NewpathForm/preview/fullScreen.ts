@@ -6,3 +6,7 @@ export const fullScreen = (element)=>{
         document.exitFullscreen();
       }
 }
+export const exitFullScreen = (element) =>{
+  if (document.fullscreenElement)
+    document.exitFullscreen();
+}

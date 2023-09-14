@@ -25,33 +25,70 @@ body {
     )
     rgb(var(--background-start-rgb)); */
 }
-.primaryBtn{
-  @apply  disabled:opacity-50 disabled:cursor-not-allowed inline-block w-36 rounded bg-blue-500  px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-blue-500 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-blue-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-blue-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]
-
+.primaryBtn {
+  @apply disabled:opacity-50 disabled:cursor-not-allowed inline-block w-36 rounded bg-blue-500  px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-blue-500 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-blue-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-blue-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)];
 }
-.primaryInput{
-  @apply h-full w-full rounded-[7px] border border-blue-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-200 placeholder-shown:border-t-blue-200 focus:border-2 focus:border-blue-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-50
+.primaryInput {
+  @apply h-full w-full rounded-[7px] border border-blue-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-200 placeholder-shown:border-t-blue-200 focus:border-2 focus:border-blue-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-50;
 }
-.quill img{
-  @apply   rounded-lg w-3/4 sm:w-1/2 h-auto mx-auto my-4;
+.quill img {
+  @apply rounded-lg w-3/4 sm:w-1/2 h-auto mx-auto my-4;
 }
-.quill img::after, .quill img::before{
+.quill img::after,
+.quill img::before {
   content: "\a";
 }
-.quill a{
-  @apply  text-blue-500 hover:underline;
+.quill a,
+path a {
+  @apply text-blue-500 hover:underline;
 }
-.ql-editor{
+.ql-editor {
   /* background: rgba(128, 128, 128, 0.101); */
-  min-height:50px;
+  min-height: 50px;
   font-size: 16px;
   padding: 15px !important;
 }
-.quill ol{
+.ql-editor:focus {
+  background: #f3f1f1c6;
+}
+.path ol {
   list-style-type: decimal;
   padding-left: 30px;
 }
-.quill ul{
-  list-style-type:disc;
+.path ul {
+  list-style-type: disc;
   padding-left: 30px;
+}
+.path pre {
+  background: #23241f;
+  color: #f8f8f2;
+  overflow: visible;
+  padding: 5px;
+  border-radius: 5px;
+}
+.path blockquote {
+  border-left: 4px solid #ccc;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding-left: 16px;
+  padding: 5px;
+}
+.ql-align-center {
+  text-align: center;
+}
+.ql-align-right {
+  text-align: right;
+}
+.ql-align-left {
+  text-align: left;
+}
+code {
+  background: #c3c3c3ae;
+  padding: 0 2px;
+  border-radius: 3px;
+  color: #ff0000ce;
+  margin: 0 2px;
+}
+.preview::backdrop {
+  background: white;
 }

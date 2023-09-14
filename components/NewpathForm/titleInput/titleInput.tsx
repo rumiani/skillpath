@@ -25,7 +25,7 @@ const TitleInput = ({register, error}) => {
           id='inputTitle'
           className="w-full p-1 focus:bg-gray-100 text-2xl font-bold outline outline-0 transition-all border-none   focus:outline-0 "
           placeholder="Write a title here..."
-          autocomplete="off"
+          autoComplete="off"
           type='text'
           {...register('title',{
             required:'Title is required',
@@ -46,14 +46,14 @@ const TitleInput = ({register, error}) => {
                   'Rumi is not allowed as a title'
                 )
               },
-              myEmailValidate: async (fieldValue:string) =>{
-                fieldValue = _.capitalize(fieldValue)
-                const res = await fetch(
-                  `https://jsonplaceholder.typicode.com/users?email=${fieldValue}`
-                  );
-                  const data = await res.json()
-                  return data.length === 0 || 'Email already exists.'
-                }
+              // myEmailValidate: async (fieldValue:string) =>{
+              //   fieldValue = _.capitalize(fieldValue)
+              //   const res = await fetch(
+              //     `https://jsonplaceholder.typicode.com/users?email=${fieldValue}`
+              //     );
+              //     const data = await res.json()
+              //     return data.length === 0 || 'Email already exists.'
+              //   }
             }
           })}
         />
