@@ -19,13 +19,16 @@ const Confirmation = ({msg,confirmationHandler,showModal}) => {
                 <button 
                   onClick={()=> {
                     confirmationHandler(false)
-                    dialogModal.current?.close()}
-                  }
+                    dialogModal.current?.close()
+                  }}
                 className='w-18 border-2 hover:border-gray-500 py-1 px-2 rounded-md'
                 >Cancel</button>
                 <button 
                   className='w-18 border-2 hover:border-red-500 hover:text-red-500 py-1 px-2 rounded-md'
-                  onClick={()=> confirmationHandler(true)}>Confirm</button>
+                  onClick={()=> {
+                    confirmationHandler(true)
+                    dialogModal.current?.close()
+                  }}>Confirm</button>
                 </div>
             </div>
         </dialog>

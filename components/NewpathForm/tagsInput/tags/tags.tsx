@@ -1,20 +1,26 @@
-import { pathReducer } from '@/redux/appStateSlice'
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import Tag from './tag/tag'
+import React from "react";
+import Tag from "./tag/tag";
 
-const Tags = () => {
-    const {path} = useSelector((state:any) => state.appState)
-    
+const Tags = ({ tags, setValue, getValues }) => {
+  const removeTagHandler = (tag: string) => {
+    const filteredTags = getValues().tags.array.filter(
+      (eachTag: string) => eachTag !== tag
+    );
+    setValue("tags.array", filteredTags);
+  };
   return (
     <>
-        {path.tags.map( (tag:string, index:string) => {
-            return (
-                <Tag key={index} tag={tag}/>
-            )
-        })}
+      {tags.map((tag: string, index: string) => {
+        return (
+          <Tag
+            key={index}
+            tag={tag}
+            removeTagHandler={removeTagHandler}
+          />
+        );
+      })}
     </>
-  )
-}
+  );
+};
 
-export default Tags
+export default Tags;

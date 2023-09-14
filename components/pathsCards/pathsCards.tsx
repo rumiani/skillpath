@@ -9,7 +9,11 @@ const PathsCards = ({paths}) => {
   
   return (
     <div className='flex flex-wrap gap-2 my-8'>
-        {paths.map( (path, index) => <PathCard key={index} path={path}/>)}
+        {paths.length > 0?
+          paths.map( (path, index) => <PathCard key={index} path={path}/>)
+          :
+          <p>There is no path here yet.</p>
+        }
     </div>
   )
 }

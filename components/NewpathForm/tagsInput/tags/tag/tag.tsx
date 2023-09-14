@@ -1,15 +1,8 @@
-import { pathReducer } from '@/redux/appStateSlice'
+
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 
-const Tag = ({tag}) => {
-    const {path} = useSelector((state:any) => state.appState)
-    const dispatch = useDispatch()
+const Tag = ({tag, removeTagHandler}) => {
 
-    const removeTagHandler = (tag:string) =>{
-        const filteredTags = path.tags.filter( (eachTag:string) => eachTag !== tag)
-        dispatch(pathReducer({tags:filteredTags}))
-    }
   return (
     <div className='relative bg-blue-200 w-fit rounded-md p-1 m-1'>
         <span className='pr-6 break-words'>{tag}</span>

@@ -4,7 +4,7 @@ import { AiOutlineClose } from 'react-icons/ai'
 import { deletePath } from '@/pages/api/api'
 import { useRouter } from 'next/router'
 import Confirmation from '@/components/confirmation/confirmation'
-
+import { toast } from 'react-toastify'
 
 const PathMenu = () => {
     const router = useRouter()
@@ -15,13 +15,17 @@ const PathMenu = () => {
     const deleteHandler = (url) =>{
         setShowModal(true)
     }
-    const confirmationHandler = (confirm)=>{
-        console.log(confirm);
-        
+    const confirmationHandler =async (confirm)=>{        
         if(confirm){
-            deletePath(pathUrl)
-            console.log('delete request');
-            
+            await deletePath(pathUrl).then(()=>{
+
+            })
+            if(await deletePath(pathUrl)){
+                toast.success('Path deleted.')
+                router.push('/')
+                return 
+            }
+            toast.error('Path not found.')          
         }else{
             setShowModal(false)
         }
