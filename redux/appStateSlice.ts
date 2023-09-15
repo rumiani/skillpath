@@ -22,6 +22,7 @@ const initialState: initialStateTypes = {
     body:'',
     length:1,
     tags:[],
+    url:''
   },
   paths:[],
 }
@@ -31,9 +32,12 @@ export const appStateSlice = createSlice({
   initialState,
   reducers: {
     pathReducer: (state, action: PayloadAction<object>) => {  
+      
       state.path = { ...state.path, ...action.payload}
     },
     resetPathReducer: (state) => {  
+      console.log(state.path);
+      
       state.path = initialState.path
     }
   },

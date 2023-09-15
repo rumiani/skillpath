@@ -8,8 +8,6 @@ const TagsInput = ({ register, error, watch, setValue, getValues }) => {
     
     if (_.last(str) === ',' || _.last(str) === '-') {
       const newTag = str.replace(/[^a-zA-Z0-9 ]/g, "");
-      console.log(str,newTag,_.last(str));
-
       if (watch("tags.array").length < 5 && newTag.length > 3) {
         setValue("tags.array", [...getValues().tags.array, newTag]);
         setValue("tags.tag", "");

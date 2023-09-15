@@ -1,10 +1,10 @@
-import NewpathForm from '@/components/NewpathForm/NewpathForm'
+import NewPath from '@/components/newpath/newPath'
 import React from 'react'
 
 const Index = () => {
   return (
     <div>
-        <NewpathForm/>
+        <NewPath/>
     </div>
   )
 }

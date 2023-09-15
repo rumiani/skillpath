@@ -7,7 +7,7 @@ const PathPage = () => {
     const{path} = useSelector(state => state.appState)
     
   return (
-    <div className='p-2'>
+    <div className='path p-2'>
       <div className='flex flex-wrap justify-between'>
         <strong>{_.capitalize(path.title)}</strong>
         <PathMenu/>
@@ -17,7 +17,7 @@ const PathPage = () => {
           dangerouslySetInnerHTML={{__html: path.body}}
         ></div>
         <div>
-        {path.tags.map( (tag,index) =>{
+        {path.tags.map( (tag:string,index:string) =>{
                         return <span className='bg-blue-200 p-1 rounded-md mx-1' key={index}>{tag}</span>
                     }
           )}

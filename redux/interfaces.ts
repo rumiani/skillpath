@@ -16,6 +16,7 @@ export interface pathType {
     body:string,
     length:number,
     tags:string[],
+    url:string
 }
 
 export interface initialStateTypes {

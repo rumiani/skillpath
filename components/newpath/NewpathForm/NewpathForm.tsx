@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import TitleInput from "./titleInput/titleInput";
 import TagsInput from "./tagsInput/tagsInput";
 import { toast } from "react-toastify";
-import { useDispatch, useSelector } from "react-redux";
 import Preview from "./preview/preview";
 import _ from "lodash";
-import { createPath } from "@/actions/paths";
-import { pathReducer, resetPathReducer } from "@/redux/appStateSlice";
 import SentComponent from "./sentComponent/sentComponent";
 import { useForm, Controller } from "react-hook-form";
 import QuillEditor from "./textInput/TextInput";
+import { createPath } from "@/actions/path/createPath";
+import { useDispatch } from "react-redux";
+import { resetPathReducer } from "@/redux/appStateSlice";
 
 type FormValues = {
   title: string;
@@ -21,6 +21,7 @@ type FormValues = {
   };
 };
 const NewpathForm = () => {
+  const dispatch = useDispatch()
   const form = useForm<FormValues>({
     defaultValues: {
       title: "",
@@ -44,36 +45,24 @@ const NewpathForm = () => {
   } = form;
   const { errors, isSubmitting, isSubmitSuccessful } = formState;
 
-  const submitHandler = (data: FormValues,e) => {
-        // data.preventDefault();
-        
-    // if (data.key === 'Enter') {
-    //     // console.log(data);
-    //   }
-    console.log('submited',data);
+  const submitHandler = (data: FormValues) => {
+    const path = { title: data.title, body: data.html, tags: data.tags?.array };
+    if(path.title){      
+      dispatch(createPath(path))
+    }
   };
 
   useEffect(() => {
-    // console.log(getValues());
-    // console.log(setValue('title','maziar'));
+    dispatch(resetPathReducer())
+
     const subscription = watch((value) => {
-    //   console.log("form values", value);
+      //   console.log("form values", value);
     });
     return () => subscription.unsubscribe;
   }, [watch, reset, isSubmitSuccessful, setValue, getValues]);
 
-  //     const {path} = useSelector( state => state.appState)
-  //     const dispatch = useDispatch()
-  //     const dialogElement = useRef()
-
   //     const submitHandler = async (event:FormEvent) =>{
-  //         if (event.key === "Enter")
-  //             event.preventDefault();
 
-  //         if(path.tags.length === 0){
-  //             document.querySelector<HTMLInputElement>('#inputTag')?.focus()
-  //             return toast.error(`Please add a tag.`, {position: toast.POSITION.TOP_RIGHT})
-  //         }
   //         // console.log(path);
   //         const result = await dispatch(createPath(path))
   //         if(result){
@@ -84,9 +73,8 @@ const NewpathForm = () => {
   //     }
   //         // dispatch(resetPathReducer())
 
-  const newPathHandler = () => {};
   if (isSubmitSuccessful) {
-    console.log("Submit Successful");
+    // console.log("Submit Successful");
     // reset()
     // return  <SentComponent path={path} newPathHandler={newPathHandler}/>
   }
@@ -122,7 +110,8 @@ const NewpathForm = () => {
           Publish
         </button>
       </form>
-      <Preview getValues={getValues}/>
+      {/* <SentComponent url={url}/> */}
+      <Preview getValues={getValues} />
     </div>
   );
 };

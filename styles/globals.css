@@ -17,6 +17,7 @@
 }
 
 body {
+  word-wrap: break-word;
   /* color: rgb(var(--foreground-rgb)); */
   /* background: linear-gradient(
       to bottom,
@@ -47,6 +48,7 @@ path a {
   min-height: 50px;
   font-size: 16px;
   padding: 15px !important;
+  z-index: 50;
 }
 .ql-editor:focus {
   background: #f3f1f1c6;
@@ -65,6 +67,8 @@ path a {
   overflow: visible;
   padding: 5px;
   border-radius: 5px;
+  white-space: pre-wrap; 
+  word-wrap: break-word;
 }
 .path blockquote {
   border-left: 4px solid #ccc;
@@ -88,7 +92,10 @@ code {
   border-radius: 3px;
   color: #ff0000ce;
   margin: 0 2px;
+  word-wrap: break-word;
+
 }
 .preview::backdrop {
   background: white;
 }
+

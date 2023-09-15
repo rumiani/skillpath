@@ -35,36 +35,37 @@ const Preview = ({ getValues }) => {
       >
         <div ref={pathlement} className="quill my-4 p-4 ">
           <h2 className="font-bold text-gray-500">Preview</h2>
+         <div className="max-w-4xl break-words text-center mx-auto">
           <h1 className="text-center font-bold text-2xl my-4">
-            {_.capitalize(getValues().title)}
-          </h1>
-          <div
-            className="text-base"
-            dangerouslySetInnerHTML={{ __html: he.decode(getValues().html) }}
-          ></div>
-          <div className="my-4">
-            {path.tags.length > 0 && "Tags:"}
-            <br />
-            {getValues().tags.array.map((tag, index) => {
-              return (
-                <span className="bg-blue-200 p-1 rounded-md mx-1" key={index}>
-                  {tag}
-                </span>
-              );
-            })}
+              {_.capitalize(getValues().title)}
+            </h1>
+            <div
+              className="text-lg "
+              dangerouslySetInnerHTML={{ __html: he.decode(getValues().html) }}
+            ></div>
+            <div className="my-4 mx-auto">
+              <br />
+              {getValues().tags.array.map((tag, index) => {
+                return (
+                  <span className="bg-blue-200 p-1 rounded-md mx-1" key={index}>
+                    {tag}
+                  </span>
+                );
+              })}
+            </div>
+            <button id="close" className="primaryBtn mr-4"
+            onClick={exitFullScreen}>
+              Back
+            </button>
+            <button
+              id="fullscreen"
+              className="primaryBtn"
+              onClick={() => fullScreen(pathlement.current)}
+            >
+              Fullscreen
+            </button>
           </div>
-          <button id="close" className="primaryBtn mr-4"
-          onClick={exitFullScreen}>
-            Back
-          </button>
-          <button
-            id="fullscreen"
-            className="primaryBtn"
-            onClick={() => fullScreen(pathlement.current)}
-          >
-            Fullscreen
-          </button>
-        </div>
+         </div>
       </dialog>
     </div>
   );

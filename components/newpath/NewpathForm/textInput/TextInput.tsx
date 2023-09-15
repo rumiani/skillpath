@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css';
 import dynamic from "next/dynamic";
-import { log } from 'console';
 
 const ReactQuill = dynamic(import('react-quill'), { ssr: false ,
     loading: () => <p>Loading ...</p>,})
@@ -28,7 +27,7 @@ const QuillEditor = ({  register,error,watch,setValue, getValues}) => {
 
       const onEditorStateChange = (html: string, delta: any, source: any, editor: { getText(): () => string }) => {
         const text = editor.getText()
-        console.log(getValues().text);
+        // console.log(getValues().text);
         // console.log('text length watch', watch('text').length);
         // console.log(watch('text').length > 10);
         
