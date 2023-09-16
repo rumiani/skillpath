@@ -1,24 +1,23 @@
-import { getPath } from "@/actions/path/getPath";
 import Custom404 from "@/components/custom404/custom404";
 import PathPage from "@/components/pathPage/pathPage";
-import { pathReducer } from "@/redux/appStateSlice";
-import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 
-const Index = () => {
-  const{path} = useSelector(state => state.appState)
-  const [found, setFound] = useState(true);
-  const dispatch = useDispatch();
-  const router = useRouter();
-  const uniqueUrl = router.query.url;
-console.log(uniqueUrl);
+export const getServerSideProps = async (context) => {
+  const { url } = context.query;
+  try {
+    const res = await fetch("http://localhost:5000/path/" + url);
+    const data = await res.json();
+    return {
+      props: { path: data },
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+const Index = ({ path }) => {
+  console.log(path);
 
-  useEffect(() => {
-    dispatch(getPath('/'+uniqueUrl))
-  }, [uniqueUrl, dispatch]);
-
-  return <div>{path.url ? <PathPage /> : <Custom404 />}</div>;
+  return <div>{path.url ? <PathPage path={path} /> : <Custom404 />}</div>;
 };
 
 export default Index;

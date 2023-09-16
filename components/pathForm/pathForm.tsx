@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import TitleInput from "./titleInput/titleInput";
 import TagsInput from "./tagsInput/tagsInput";
 import { toast } from "react-toastify";
 import Preview from "./preview/preview";
 import _ from "lodash";
-import SentComponent from "./sentComponent/sentComponent";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import QuillEditor from "./textInput/TextInput";
 import { createPath } from "@/actions/path/createPath";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { resetPathReducer } from "@/redux/appStateSlice";
+import SubmitBtn from "./submitBtn/submitBtn";
 
 type FormValues = {
   title: string;
@@ -20,15 +20,16 @@ type FormValues = {
     tag: string;
   };
 };
-const NewpathForm = () => {
+const PathForm = () => {
+  const {path} = useSelector(state => state.appState)
   const dispatch = useDispatch()
   const form = useForm<FormValues>({
     defaultValues: {
-      title: "",
-      html: "",
+      title: path.title,
+      html: path.body,
       text: "",
       tags: {
-        array: [],
+        array: path.tags,
         tag: "",
       },
     },
@@ -61,18 +62,6 @@ const NewpathForm = () => {
     return () => subscription.unsubscribe;
   }, [watch, reset, isSubmitSuccessful, setValue, getValues]);
 
-  //     const submitHandler = async (event:FormEvent) =>{
-
-  //         // console.log(path);
-  //         const result = await dispatch(createPath(path))
-  //         if(result){
-  //         }
-  //         if(path.url){
-  //             dialogElement.current!.showModal()
-  //         }
-  //     }
-  //         // dispatch(resetPathReducer())
-
   if (isSubmitSuccessful) {
     // console.log("Submit Successful");
     // reset()
@@ -102,18 +91,11 @@ const NewpathForm = () => {
           setValue={setValue}
           getValues={getValues}
         />
-        <button
-          disabled={isSubmitting}
-          onClick={submitHandler}
-          className="primaryBtn  mx-auto"
-        >
-          Publish
-        </button>
+        <SubmitBtn isSubmitting={isSubmitting} submitHandler={submitHandler}/>
       </form>
-      {/* <SentComponent url={url}/> */}
       <Preview getValues={getValues} />
     </div>
   );
 };
 
-export default NewpathForm;
+export default PathForm;

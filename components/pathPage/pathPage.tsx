@@ -1,10 +1,8 @@
 import _ from 'lodash'
 import React from 'react'
-import { useSelector } from 'react-redux'
 import PathMenu from './pathMenu/pathMenu'
 
-const PathPage = () => {
-    const{path} = useSelector(state => state.appState)
+const PathPage = ({path}) => {
     
   return (
     <div className='path p-2'>
@@ -13,7 +11,7 @@ const PathPage = () => {
         <PathMenu/>
       </div>
         <br />
-        <div className='break-words my-4'
+        <div className='path break-words my-4'
           dangerouslySetInnerHTML={{__html: path.body}}
         ></div>
         <div>

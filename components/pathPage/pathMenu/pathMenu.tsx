@@ -34,10 +34,8 @@ const PathMenu = () => {
 
 
   const editHandler = () =>{
-    console.log(pathUrl);
-    
-    dispatch(getPath(pathUrl))
-    router.push('/edit/'+pathUrl)
+    console.log(pathUrl);    
+    router.push('/path-edit/'+pathUrl)
   }
   return (
     <div className="relative w-20">
