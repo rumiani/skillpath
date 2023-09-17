@@ -1,24 +1,8 @@
-import { pathReducer } from '@/redux/appStateSlice'
 import _ from 'lodash'
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { toast } from 'react-toastify'
 
 const TitleInput = ({register, error}) => {
 
-  const {path} = useSelector((state:any) => state.appState)
-  const dispatch = useDispatch()
-
-  const inputChangeHandler = (event) =>{
-    const newTitle = event.target.value
-    dispatch(pathReducer({title:newTitle}))
-  }
-  const titleInputControler = () =>{
-            if(_.isEmpty(path.title)){
-            document.querySelector<HTMLInputElement>('#inputTitle')?.focus()
-            return toast.error(`Please add a title`, {position: toast.POSITION.TOP_RIGHT})
-        }
-  }
   return (
     <div className="w-full mx-auto my-2">
         <input

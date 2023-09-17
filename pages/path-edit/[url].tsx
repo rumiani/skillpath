@@ -1,11 +1,7 @@
-import { getPath } from '@/actions/path/getPath'
-import Custom404 from '@/components/custom404/custom404'
-import PathForm from '@/components/pathForm/pathForm'
-import PathPage from '@/components/pathPage/pathPage'
-import { pathReducer } from '@/redux/appStateSlice'
-import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import Custom404 from "@/components/custom404/custom404";
+import CreatedPath from "@/components/hookFormComps/createdPath/createdPath";
+import PathUpdateForm from "@/components/path-edit/pathUpdateForm";
+import React from "react";
 
 export const getServerSideProps = async (context) => {
   const { url } = context.query;
@@ -20,18 +16,14 @@ export const getServerSideProps = async (context) => {
   }
 };
 
-const Index = ({path}) => {
-
-console.log(path);
-
+const Index = ({ path }) => {
   return (
-    <div>
-      {path.title &&
-        <PathForm/>
-        // <Custom404/>
-      }
+    <div className=" w-full h-full border border-green-500 my-2 rounded-xl">
+      {path.title && <PathUpdateForm path={path}/>}
+      {!path.title && path.url && <CreatedPath/>} 
+      {!path.title && !path.url && <Custom404/>}
     </div>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;

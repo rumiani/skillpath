@@ -21,11 +21,11 @@ const Preview = ({ getValues }) => {
   }, []);
 
   return (
-    <div className="path flex justify-center">
+    <div className="path flex">
       <button
         onClick={showModalHnadler}
         style={{ background: "gray" }}
-        className="primaryBtn mx-auto mb-4"
+        className="primaryBtn mx-auto mb-2"
       >
         Preview
       </button>
@@ -35,12 +35,12 @@ const Preview = ({ getValues }) => {
       >
         <div ref={pathlement} className="quill my-4 p-4 ">
           <h2 className="font-bold text-gray-500">Preview</h2>
-         <div className="max-w-4xl break-words text-center mx-auto">
+         <div className="max-w-4xl break-words mx-auto">
           <h1 className="text-center font-bold text-2xl my-4">
               {_.capitalize(getValues().title)}
             </h1>
             <div
-              className="text-lg "
+              className="text-lg"
               dangerouslySetInnerHTML={{ __html: he.decode(getValues().html) }}
             ></div>
             <div className="my-4 mx-auto">

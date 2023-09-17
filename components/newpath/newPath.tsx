@@ -1,13 +1,21 @@
 import React from "react";
-import CreatedPath from "./createdPath/createdPath";
+import CreatedPath from "../hookFormComps/createdPath/createdPath";
 import { useSelector } from "react-redux";
-import PathForm from "../pathForm/pathForm";
+import PathForm from "./pathForm/pathForm";
 
 const NewPath = () => {
   const { path } = useSelector((state) => state.appState);
-
+  const defaultValues = {
+    title: '',
+    html: '',
+    text: '',
+    tags: {
+      array: '',
+      tag: '',
+    },
+  }
   return (
-    <>{path.url ? <CreatedPath/> : <PathForm /> }</>
+    <>{path.url ? <CreatedPath/> : <PathForm defaultValues={defaultValues}/> }</>
   );
 };
 

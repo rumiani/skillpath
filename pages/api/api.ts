@@ -5,14 +5,13 @@ interface pathType {
   body: string;
   tags: string[];
 }
-const postMethod = (path: pathType) => ({
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(path),
-});
 
 export const createPath = (path: pathType) => {
-  return fetch(serverUrl + "/newpath", postMethod(path));
+  return fetch(serverUrl + "/newpath", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(path),
+  });
 };
 
 export const deletePath = (pathUrl: string) => {
@@ -21,4 +20,13 @@ export const deletePath = (pathUrl: string) => {
   });
 };
 
+export const updatePath = (pathUrl: string, path: pathType) => {
+  console.log(path);
+  
+  return fetch(serverUrl + "/path-edit/" + pathUrl, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(path),
+  });
+};
 export const getPath = (pathUrl:string) => fetch(pathUrl);

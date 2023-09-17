@@ -15,8 +15,6 @@ export const getServerSideProps = async (context) => {
   }
 };
 const Index = ({ path }) => {
-  console.log(path);
-
   return <div>{path.url ? <PathPage path={path} /> : <Custom404 />}</div>;
 };
 

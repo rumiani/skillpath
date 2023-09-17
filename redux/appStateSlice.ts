@@ -35,9 +35,7 @@ export const appStateSlice = createSlice({
       
       state.path = { ...state.path, ...action.payload}
     },
-    resetPathReducer: (state) => {  
-      console.log(state.path);
-      
+    resetPathReducer: (state) => {        
       state.path = initialState.path
     }
   },
