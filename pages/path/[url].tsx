@@ -1,5 +1,5 @@
-import Custom404 from "@/components/custom404/custom404";
-import PathPage from "@/components/pathPage/pathPage";
+import Custom404 from "@/components/404_components/custom404";
+import PathPage from "@/components/path_page/pathPage";
 import React from "react";
 
 export const getServerSideProps = async (context) => {

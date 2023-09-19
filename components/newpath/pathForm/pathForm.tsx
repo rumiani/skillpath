@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
-import TitleInput from "../../hookFormComps/titleInput/titleInput";
-import TagsInput from "../../hookFormComps/tagsInput/tagsInput";
+import TitleInput from "../../form_components/titleInput/titleInput";
+import TagsInput from "../../form_components/tagsInput/tagsInput";
 import { toast } from "react-toastify";
-import Preview from "../../hookFormComps/preview/preview";
+import Preview from "../../form_components/preview/preview";
 import _ from "lodash";
 import { useForm } from "react-hook-form";
-import QuillEditor from "../../hookFormComps/textInput/TextInput";
+import QuillEditor from "../../form_components/textInput/TextInput";
 import { createPath } from "@/actions/path/createPath";
 import { useDispatch, useSelector } from "react-redux";
 import { resetPathReducer } from "@/redux/appStateSlice";
-import SubmitBtn from "../../hookFormComps/submitBtn/submitBtn";
+import SubmitBtn from "../../form_components/submitBtn/submitBtn";
 
 type FormValues = {
   title: string;
@@ -91,7 +91,7 @@ const PathForm = () => {
           setValue={setValue}
           getValues={getValues}
         />
-        <SubmitBtn isSubmitting={isSubmitting} submitHandler={submitHandler}/>
+        <SubmitBtn isSubmitting={isSubmitting} submitHandler={submitHandler} submitType={'publish'}/>
       </form>
       <Preview getValues={getValues} />
     </div>

@@ -2,7 +2,7 @@ import _ from 'lodash'
 import React from 'react'
 import PathMenu from './pathMenu/pathMenu'
 
-const PathPage = ({path}) => {
+const Path_Page_Components = ({path}) => {
     
   return (
     <div className='path p-2'>
@@ -24,4 +24,4 @@ const PathPage = ({path}) => {
   )
 }
 
-export default PathPage
+export default Path_Page_Components

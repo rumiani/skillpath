@@ -1,6 +1,7 @@
-import Custom404 from "@/components/custom404/custom404";
+import Custom404 from "@/components/404_components/custom404";
+import Edit_Page_Components from "@/components/Edit_Page_Components/Edit_Page_Components";
 import CreatedPath from "@/components/hookFormComps/createdPath/createdPath";
-import PathUpdateForm from "@/components/path-edit/pathUpdateForm";
+import PathUpdateForm from "@/components/path-edit_components/pathUpdateForm";
 import React from "react";
 
 export const getServerSideProps = async (context) => {
@@ -19,7 +20,7 @@ export const getServerSideProps = async (context) => {
 const Index = ({ path }) => {
   return (
     <div className=" w-full h-full border border-green-500 my-2 rounded-xl">
-      {path.title && <PathUpdateForm path={path}/>}
+      {path.title && <Edit_Page_Components path={path}/>}
       {!path.title && path.url && <CreatedPath/>} 
       {!path.title && !path.url && <Custom404/>}
     </div>

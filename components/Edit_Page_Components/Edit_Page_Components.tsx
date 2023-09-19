@@ -1,20 +1,20 @@
 import React, { useEffect } from "react";
-import TitleInput from "../hookFormComps/titleInput/titleInput";
-import TagsInput from "../hookFormComps/tagsInput/tagsInput";
+import TitleInput from "../form_components/titleInput/titleInput";
+import TagsInput from "../form_components/tagsInput/tagsInput";
 import { toast } from "react-toastify";
-import Preview from "../hookFormComps/preview/preview";
+import Preview from "../form_components/preview/preview";
 import _ from "lodash";
 import { useForm } from "react-hook-form";
-import QuillEditor from "../hookFormComps/textInput/TextInput";
+import QuillEditor from "../form_components/textInput/TextInput";
 import { createPath } from "@/actions/path/createPath";
 import { useDispatch, useSelector } from "react-redux";
 import { resetPathReducer } from "@/redux/appStateSlice";
-import SubmitBtn from "../hookFormComps/submitBtn/submitBtn";
-import UpdateBtn from "../hookFormComps/updateBtn/updateBtn";
+import SubmitBtn from "../form_components/submitBtn/submitBtn";
+import UpdateBtn from "../form_components/updateBtn/updateBtn";
 import { updatePath } from "@/actions/path/updatePath";
 import { useRouter } from "next/router";
-import CreatedPath from "../hookFormComps/createdPath/createdPath";
-import CancelBtn from "../hookFormComps/cancelBtn/cancelBtn";
+import CreatedPath from "../form_components/createdPath/createdPath";
+import CancelBtn from "../form_components/cancelBtn/cancelBtn";
 
 type FormValues = {
   title: string;
@@ -25,7 +25,7 @@ type FormValues = {
     tag: string;
   };
 };
-const PathUpdateForm = ({path}) => {
+const Edit_Page_Components = ({path}) => {
   const router = useRouter()
   const dispatch = useDispatch();  
   const form = useForm<FormValues>({
@@ -104,4 +104,4 @@ const PathUpdateForm = ({path}) => {
   );
 };
 
-export default PathUpdateForm;
+export default Edit_Page_Components;

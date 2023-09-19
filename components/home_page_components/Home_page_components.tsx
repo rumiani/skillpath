@@ -2,7 +2,7 @@ import React from 'react'
 import Profile from './profile/profile'
 import PathsCards from '../pathsCards/pathsCards'
 
-const HomePage = ({paths}) => {
+const Home_page_components = ({paths}) => {
   return (
     <div>
       <Profile/>
@@ -11,4 +11,4 @@ const HomePage = ({paths}) => {
   )
 }
 
-export default HomePage
+export default Home_page_components

@@ -1,6 +1,9 @@
-import React from "react";
-import Login_Page_Components from "@/components/login_Page_Components/Login_Page_Components";
+import Auth from "@/components/auth_components/auth";
+import Signup from "@/components/auth_components/signup/signup";
+import Signup_Page_Components from "@/components/signup_Page_Components/Signup_Page_Components";
 import Head from "next/head";
+import Image from "next/image";
+import React from "react";
 
 const Index = () => {
   return (
@@ -17,7 +20,7 @@ const Index = () => {
       </Head>
       <section>
         <div className="g-6 flex flex-row h-full items-center justify-center lg:justify-between">
-          <Login_Page_Components />
+          <Signup_Page_Components />
         </div>
       </section>
     </>

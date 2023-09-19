@@ -1,4 +1,4 @@
-import HomePage from '@/components/homePage/homePage'
+import Home_page_components from '@/components/home_page_components/Home_page_components'
 import Head from 'next/head'
 import Link from 'next/link'
 
@@ -29,7 +29,7 @@ export default function index({paths}) {
             New Path
           </button>
         </Link>
-        <HomePage paths={paths}/>
+        <Home_page_components paths={paths}/>
       </div>
     </main>
       </>

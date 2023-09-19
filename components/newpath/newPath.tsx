@@ -1,5 +1,5 @@
 import React from "react";
-import CreatedPath from "../hookFormComps/createdPath/createdPath";
+import CreatedPath from "../form_components/createdPath/createdPath";
 import { useSelector } from "react-redux";
 import PathForm from "./pathForm/pathForm";
 

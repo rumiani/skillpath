@@ -1,7 +1,8 @@
+import _ from "lodash";
 import { useRouter } from "next/router";
 import React from "react";
 
-const SubmitBtn = ({ isSubmitting, submitHandler }) => {
+const SubmitBtn = ({ isSubmitting, submitHandler, submitType }) => {
   return (
     <>
       <button
@@ -9,7 +10,7 @@ const SubmitBtn = ({ isSubmitting, submitHandler }) => {
         onClick={submitHandler}
         className="primaryBtn  mx-auto"
       >
-        Publish
+        {_.capitalize(submitType)}
       </button>
     </>
   );

@@ -1,4 +1,4 @@
-import Custom404 from "@/components/custom404/custom404";
+import Custom404 from "@/components/404_components/custom404";
 import Head from "next/head";
 
 const NotFound: React.FC = () => {

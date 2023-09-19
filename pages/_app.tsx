@@ -7,6 +7,8 @@ import Layout from '@/components/layout/layout'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 
 export default function App({ Component, pageProps }: AppProps) {
+  console.log('server',process.env.NEXT_PUBLIC_SERVER);
+  
   return (
     <Provider store={store}>
       <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID} >
