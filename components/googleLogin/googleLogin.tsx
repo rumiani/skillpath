@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 // import { userLoggedInReducer } from '@/redux/appStateSlice';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
+import { userLogin } from '@/actions/user/login';
 
 const GoogleLoginComp = () => {
     // const[session, setSession] = useLocalStorage('userSession', null)
@@ -14,6 +15,7 @@ const GoogleLoginComp = () => {
     const router = useRouter()
 
     useEffect(()=>{  
+
     //   if(session){
     //     router.push('/')
     //   }
@@ -31,8 +33,9 @@ const GoogleLoginComp = () => {
       <GoogleLogin
             onSuccess={res => {   
                 // const credential:object = jwt_decode(res.credential)
-                        //  console.log(res.clientId);                        
-                         postData(process.env.NEXT_PUBLIC_SERVER_LOGIN, {credential: res.credential})                       
+                         console.log(res.credential);    
+
+                        userLogin({credential: res.credential})                       
             }}
             onError={() => {
               console.log('Login Failed');

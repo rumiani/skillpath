@@ -1,49 +1,49 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
-import { initialStateTypes, pathType } from './interfaces'
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+import { initialStateTypes, pathType } from "./interfaces";
 
 const initialState: initialStateTypes = {
   user: {
-    id:'', 
-    name:'', 
-    email:'',
-    avatar:'',
-    role:'',
-    joinTime:'',
-    permission:true,
-    loggedIn:false,
-    linkedIn:'',
-    twitter:''
+    id: "",
+    name: "",
+    email: "",
+    avatar: "",
+    role: "",
+    joinTime: "",
+    permission: true,
+    loggedIn: false,
+    linkedIn: "",
+    twitter: "",
   },
-  users:[],
-  path:{
-    id:'',
-    title: '',
-    body:'',
-    length:1,
-    tags:[],
-    url:''
+  users: [],
+  path: {
+    id: "",
+    title: "",
+    body: "",
+    length: 1,
+    tags: [],
+    url: "",
   },
-  paths:[],
-}
+  paths: [],
+};
 
 export const appStateSlice = createSlice({
-  name: 'appState',
+  name: "appState",
   initialState,
   reducers: {
-    pathReducer: (state, action: PayloadAction<object>) => {  
-      
-      state.path = { ...state.path, ...action.payload}
+    pathReducer: (state, action: PayloadAction<object>) => {
+      state.path = { ...state.path, ...action.payload };
     },
-    resetPathReducer: (state) => {        
-      state.path = initialState.path
-    }
+    resetPathReducer: (state) => {
+      state.path = initialState.path;
+    },
+    userReducer: (state, action: PayloadAction<object>) => {
+      state.user = { ...state.user, ...action.payload };
+    },
   },
-})
+});
 
-export const { 
-  pathReducer, 
-  resetPathReducer
-} = appStateSlice.actions
+export const { pathReducer, resetPathReducer, userReducer } =
+  appStateSlice.actions;
 
-export default appStateSlice.reducer
+export default appStateSlice.reducer;

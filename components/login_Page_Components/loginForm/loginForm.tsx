@@ -37,7 +37,7 @@ const LoginForm = () => {
 
   useEffect(() => {
     const subscription = watch((value) => {
-      //   console.log("form values", value);
+        console.log("form values", value);
     });
     return () => subscription.unsubscribe;
   }, [watch, reset, isSubmitSuccessful, setValue, getValues]);

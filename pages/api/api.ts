@@ -1,3 +1,4 @@
+
 export const serverUrl = "http://localhost:5000";
 
 interface pathType {
@@ -5,6 +6,7 @@ interface pathType {
   body: string;
   tags: string[];
 }
+
 
 export const createPath = (path: pathType) => {
   return fetch(serverUrl + "/newpath", {
@@ -30,3 +32,13 @@ export const updatePath = (pathUrl: string, path: pathType) => {
   });
 };
 export const getPath = (pathUrl:string) => fetch(pathUrl);
+
+
+
+export const login = (user) => {
+  return fetch(serverUrl + "/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(user),
+  });
+};

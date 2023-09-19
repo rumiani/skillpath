@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import SignupForm from "./signupForm/signupForm";
-import GoogleLoginComp from "../googleLogin/googleLogin";
 import Link from "next/link";
+import GoogleLoginComp from "../googleLogin/googleLogin";
 
 const Signup_Page_Components = () => {
   return (
