@@ -9,10 +9,10 @@ const Login_Page_Components = () => {
     <section className="h-screen my-8 flex flex-row">
       <div className="hidden lg:block mb-12 lg:w-1/2">
         <Image
-          width={48}
-          height={48}
+          width={10000}
+          height={1}
           src="./assets/images/login.svg"
-          className="w-full"
+          className="rounded-lg"
           alt="Phone image"
         />
       </div>

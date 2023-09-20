@@ -3,11 +3,14 @@ import EmailInput from "@/components/form_components/emailInput/emailInput";
 import PasswordInput from "@/components/form_components/passwordInput/passwordInput";
 import SubmitBtn from "@/components/form_components/submitBtn/submitBtn";
 import { useForm } from "react-hook-form";
+import { userLogin } from "@/actions/user/login";
+import { useDispatch } from "react-redux";
 type FormValues = {
   email: string;
   password: string;
 };
 const LoginForm = () => {
+  const dispatch = useDispatch()
   const form = useForm<FormValues>({
     defaultValues: {
       email: "",
@@ -28,10 +31,8 @@ const LoginForm = () => {
 
   const submitHandler = (data: FormValues) => {
     const user = { email: data.email, password: data.password };
-    if (user.email) {
-      console.log(user);
-      
-      // dispatch(createPath(path));
+    if (user.email) {      
+      dispatch(userLogin(user));
     }
   };
 

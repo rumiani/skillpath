@@ -7,12 +7,12 @@ import GoogleLoginComp from "../googleLogin/googleLogin";
 const Signup_Page_Components = () => {
   return (
     <section className="my-4 flex flex-row">
-      <div className="hidden lg:block lg:w-1/2">
+      <div className="hidden lg:block lg:w-1/2 h-auto">
         <Image
-          width={48}
-          height={48}
-          src="./assets/images/login.svg"
-          className="w-full"
+          width={10000}
+          height={1}
+          src="/assets/images/signup.png"
+          className="rounded-lg"
           alt="Phone image"
         />
       </div>

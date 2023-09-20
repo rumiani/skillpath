@@ -2,19 +2,23 @@ import { toast } from "react-toastify";
 import * as api from "../../pages/api/api";
 import { userReducer } from "@/redux/appStateSlice";
 
-export const userLogin = (userInfoGoogle) => async (dispatch) => {
+export const userLogin = (userInfo) => async (dispatch) => {
   try {
-    const userJson = await api.login(userInfoGoogle);
+    const userJson = await api.login(userInfo);
     const user = await userJson.json();
-    if (user) {
-      toast.success("The user was created successfully");
-      return dispatch(userReducer(user));
+    if (userJson.status === 404) {
+      toast.error("The user does not exist.");
+      return;
+    }
+    if (userJson.status === 400) {
+      toast.error("Wrong credentials.");
+      return;
     } else {
-      console.log(user);
-      toast.error("Oops! something went wrong");
+      toast.success("You are logged in successfully.");
+      return dispatch(userReducer(user));
     }
   } catch (error) {
-    console.log(error);
+    toast.success("Oops, something went wrong.");
     throw new Error(error);
   }
 };
