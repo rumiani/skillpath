@@ -14,6 +14,8 @@ export const userLogin = (userInfo) => async (dispatch) => {
       toast.error("Wrong credentials.");
       return;
     } else {
+      console.log(user);
+      
       toast.success("You are logged in successfully.");
       return dispatch(userReducer(user));
     }

@@ -4,12 +4,15 @@ import PasswordInput from "@/components/form_components/passwordInput/passwordIn
 import SubmitBtn from "@/components/form_components/submitBtn/submitBtn";
 import { useForm } from "react-hook-form";
 import { userLogin } from "@/actions/user/login";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
 type FormValues = {
   email: string;
   password: string;
 };
 const LoginForm = () => {
+  const {user} = useSelector(state => state.appState)
+  const router = useRouter()
   const dispatch = useDispatch()
   const form = useForm<FormValues>({
     defaultValues: {
@@ -30,15 +33,16 @@ const LoginForm = () => {
   const { errors, isSubmitting, isSubmitSuccessful } = formState;
 
   const submitHandler = (data: FormValues) => {
-    const user = { email: data.email, password: data.password };
-    if (user.email) {      
-      dispatch(userLogin(user));
+    const userInfo = { email: data.email, password: data.password };
+    if (userInfo.email) {      
+      dispatch(userLogin(userInfo));
     }
   };
+console.log(user);
 
   useEffect(() => {
     const subscription = watch((value) => {
-        console.log("form values", value);
+        // console.log("form values", value);
     });
     return () => subscription.unsubscribe;
   }, [watch, reset, isSubmitSuccessful, setValue, getValues]);
