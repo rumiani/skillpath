@@ -1,5 +1,5 @@
 import Custom404 from "@/components/404_components/custom404";
-import PathPage from "@/components/path_page/pathPage";
+import Path_Page_Components from "@/components/path_Page_Components/Path_Page_Components";
 import React from "react";
 
 export const getServerSideProps = async (context) => {
@@ -15,7 +15,7 @@ export const getServerSideProps = async (context) => {
   }
 };
 const Index = ({ path }) => {
-  return <div>{path.url ? <PathPage path={path} /> : <Custom404 />}</div>;
+  return <div>{path.url ? <Path_Page_Components path={path} /> : <Custom404 />}</div>;
 };
 
 export default Index;
