@@ -11,7 +11,7 @@ const initialState: initialStateTypes = {
     role: "",
     joinTime: "",
     permission: true,
-    loggedIn: false,
+    loggedIn: true,
     linkedIn: "",
     twitter: "",
   },

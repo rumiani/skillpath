@@ -1,28 +1,32 @@
-import Link from 'next/link'
-import React, { useEffect, useRef, useState } from 'react'
-import Links from './links/links'
-import MenuIcon from './menuIcon/menuIcon'
+import Link from "next/link";
+import React, { useEffect, useRef, useState } from "react";
 
-const Navbar = () => {
-  const[mobileMenu, setMobileMenu] = useState(false)
+const navLinks = [
+{ name: "Home", link: "/" },
+{ name: "Notes", link: "/notes" },
+{ name: "Contact", link: "/contact" },
+{ name: "FAQ", link: "/faq" },
+];
 
-  const navbar=useRef<HTMLDivElement>(null)
-  useEffect(() =>{
-    onclick = (e)=>{
-      if(mobileMenu && !navbar.current!.contains(e.target as Node)){
-        setMobileMenu(false)
-      }
-    }
-  },[mobileMenu])
+const Navbar = ({mobileMenu}) => {
+
   return (
-    <div ref={navbar} className='bg-blue-500 flex justify-between align-top my-2 mx-auto px-5 py-4 rounded-3xl'>
-          <Link href='/' className="text-white block font-bold text-xl self-start">SkillPath</Link>
-        <div className={`${mobileMenu?'flex':'hidden'} transition-all duration-1000 md:flex mx-8 flex-grow md:flex-grow-0 md:w-fit flex items-end justify-end flex-col md:flex-row mt-10 md:m-0`}>
-            <Links setMobileMenu={()=> setMobileMenu(false)}/>
-        </div>
-        <MenuIcon toggleMobileMenu={()=> setMobileMenu(!mobileMenu)} mobileMenu={mobileMenu}/>
+    <div
+      className={`${mobileMenu?'flex':'hidden'} transition-all duration-1000 md:flex flex-grow md:flex-grow-0 md:w-fit items-start flex-col md:flex-row  md:m-0`}
+    >
+      {navLinks.map((link) => {
+        return (
+          <Link
+            className="  cursor-pointer md:w-fit md:mx-4  text-lg md:p-0 mt-5 md:m-0 text-gray-300 hover:text-white transition-transform duration-300"
+            key={link.link}
+            href={link.link}
+          >
+            {link.name}
+          </Link>
+        );
+      })}
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
