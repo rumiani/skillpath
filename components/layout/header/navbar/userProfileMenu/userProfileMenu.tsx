@@ -12,12 +12,12 @@ const UserProfileMenu = ( {mobileMenu}) => {
   useEffect(() => {    
     setIsSmallDevice(window.innerWidth < 768);
     onclick = (e) => {
-      console.log(5);
       if (!userMenuElement.current?.contains(e.target as Node)) {
         setUserMenu(false);
       }
     };
   }, [user.loggedIn]);
+
   const userMenuHandler = () => {
     setUserMenu(!userMenu);
   };
@@ -41,7 +41,7 @@ const UserProfileMenu = ( {mobileMenu}) => {
             alt="profile"
           />
         </div>
-        {(userMenu || isSmallDevice) && <UserMenu/>}
+        <UserMenu userMenu={userMenu}/>
       </div>
     </div>
   );
