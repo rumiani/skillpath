@@ -1,15 +1,12 @@
 import React, { useEffect } from "react";
 import TitleInput from "../form_components/titleInput/titleInput";
 import TagsInput from "../form_components/tagsInput/tagsInput";
-import { toast } from "react-toastify";
 import Preview from "../form_components/preview/preview";
 import _ from "lodash";
 import { useForm } from "react-hook-form";
 import QuillEditor from "../form_components/textInput/TextInput";
-import { createPath } from "@/actions/path/createPath";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { resetPathReducer } from "@/redux/appStateSlice";
-import SubmitBtn from "../form_components/submitBtn/submitBtn";
 import UpdateBtn from "../form_components/updateBtn/updateBtn";
 import { updatePath } from "@/actions/path/updatePath";
 import { useRouter } from "next/router";
@@ -75,12 +72,11 @@ const Edit_Page_Components = ({path}) => {
   return (
     <div className="flex flex-col items-center py-4">
       <form
-        className="bg-white rounded-xl p-2 md:p-4 flex flex-col justify-center"
+        className="bg-white w-full rounded-xl p-2 md:p-4 flex flex-col justify-center"
         noValidate
         onSubmit={handleSubmit(updateHandler)}
       >
         <TitleInput register={register} error={errors.title?.message} />
-
         <QuillEditor
           error={errors.html?.message}
           watch={watch}

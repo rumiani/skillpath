@@ -11,9 +11,10 @@ const UserMenu = ({userMenu}) => {
       >
         Profile
       </Link>
-      <button className="header_link p-2 text-red-700 hover:text-red-500 w-fit">
+      <Link
+      href={"/login"} className="header_link p-2 text-red-700 hover:text-red-500 w-fit">
         Log out
-      </button>
+      </Link>
     </div>
   );
 };

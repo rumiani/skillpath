@@ -1,10 +1,11 @@
 import Custom404 from "@/components/404_components/custom404";
 import Edit_Page_Components from "@/components/Edit_Page_Components/Edit_Page_Components";
-import CreatedPath from "@/components/hookFormComps/createdPath/createdPath";
-import PathUpdateForm from "@/components/path-edit_components/pathUpdateForm";
+import CreatedPath from "@/components/form_components/createdPath/createdPath";
+import { pathType } from "@/redux/interfaces";
+
 import React from "react";
 
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async (context: { query: { url: any; }; }) => {  
   const { url } = context.query;
   try {
     const res = await fetch("http://localhost:5000/path-edit/" + url);
@@ -17,9 +18,9 @@ export const getServerSideProps = async (context) => {
   }
 };
 
-const Index = ({ path }) => {
+const Index = ({ path }:{path:pathType}) => {
   return (
-    <div className=" w-full h-full border border-green-500 my-2 rounded-xl">
+    <div className="break-words w-full h-full border border-green-500 my-2 rounded-xl">
       {path.title && <Edit_Page_Components path={path}/>}
       {!path.title && path.url && <CreatedPath/>} 
       {!path.title && !path.url && <Custom404/>}

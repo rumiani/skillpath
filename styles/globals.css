@@ -49,12 +49,14 @@ body {
 .path a {
   @apply text-blue-500 hover:underline;
 }
-.ql-editor {
+.quill{
   /* background: rgba(128, 128, 128, 0.101); */
   min-height: 50px;
   font-size: 16px;
-  padding: 15px !important;
   z-index: 50;
+  width: 100%;
+  
+
 }
 .ql-editor:focus {
   background: #f3f1f1c6;
@@ -73,8 +75,6 @@ body {
   overflow: visible;
   padding: 5px;
   border-radius: 5px;
-  white-space: pre-wrap; 
-  word-wrap: break-word;
 }
 .path blockquote {
   border-left: 4px solid #ccc;
@@ -98,7 +98,6 @@ code {
   border-radius: 3px;
   color: #ff0000ce;
   margin: 0 2px;
-  word-wrap: break-word;
 }
 .preview::backdrop {
   background: white;

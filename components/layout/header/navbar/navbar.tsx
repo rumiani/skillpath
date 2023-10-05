@@ -9,7 +9,6 @@ const navLinks = [
 ];
 
 const Navbar = ({ mobileMenu }) => {
-  console.log(mobileMenu);
   
   return (
     <div

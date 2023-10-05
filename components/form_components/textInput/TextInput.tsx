@@ -60,7 +60,7 @@ const QuillEditor = ({ register, error, watch, setValue, getValues }) => {
   const editorContent = watch("html");
 
   return (
-    <div className="w-full  mx-auto my-2">
+    <div className="w-full mx-auto my-2">
       <div
         onDrop={(e) => e.preventDefault()}
         className="relative w-full min-w-[200px] text-lg"
