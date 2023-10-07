@@ -1,8 +1,9 @@
 import { toast } from "react-toastify";
 import * as api from "../../pages/api/api";
 import { pathReducer } from "@/redux/appStateSlice";
+import { pathType } from "@/redux/interfaces";
 
-export const createPath = (path) => async (dispatch) => {
+export const createPath = (path:{path:pathType}) => async (dispatch) => {
   try {
     const pathData = await api.createPath(path);
     const data = await pathData.json();
