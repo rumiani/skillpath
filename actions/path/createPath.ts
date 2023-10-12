@@ -1,9 +1,16 @@
 import { toast } from "react-toastify";
 import * as api from "../../pages/api/api";
 import { pathReducer } from "@/redux/appStateSlice";
-import { pathType } from "@/redux/interfaces";
-
-export const createPath = (path:{path:pathType}) => async (dispatch) => {
+import { Dispatch } from 'redux';
+interface pathType {
+  id:string,
+  title:string,
+  body:string,
+  length:number,
+  tags:string[],
+  url:string
+}
+export const createPath = (path:pathType) => async (dispatch:Dispatch) => {
   try {
     const pathData = await api.createPath(path);
     const data = await pathData.json();
@@ -13,12 +20,9 @@ export const createPath = (path:{path:pathType}) => async (dispatch) => {
       return dispatch(pathReducer({ url: data.url }));
     } else {
       console.log(data);
-
       toast.error("Oops! something went wrong");
     }
   } catch (error) {
-    console.log(error);
-
-    throw new Error(error.message);
+    throw new Error("Oops! something went wrong");
   }
 };

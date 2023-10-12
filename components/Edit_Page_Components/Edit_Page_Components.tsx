@@ -12,7 +12,14 @@ import { updatePath } from "@/actions/path/updatePath";
 import { useRouter } from "next/router";
 import CreatedPath from "../form_components/createdPath/createdPath";
 import CancelBtn from "../form_components/cancelBtn/cancelBtn";
-
+interface pathType {
+  id:string,
+  title:string,
+  body:string,
+  length:number,
+  tags:string[],
+  url:string
+}
 type FormValues = {
   title: string;
   html: string;
@@ -22,7 +29,7 @@ type FormValues = {
     tag: string;
   };
 };
-const Edit_Page_Components = ({path}) => {
+const Edit_Page_Components = ({path}:{path:pathType}) => {
   const router = useRouter()
   const dispatch = useDispatch();  
   const form = useForm<FormValues>({
@@ -62,7 +69,7 @@ const Edit_Page_Components = ({path}) => {
       //   console.log("form values", value);
     });
     return () => subscription.unsubscribe;
-  }, [watch, reset, isSubmitSuccessful, setValue, getValues]);
+  }, [dispatch, watch, reset, isSubmitSuccessful, setValue, getValues]);
 
   if (isSubmitSuccessful) {
     // console.log("Submit Successful");

@@ -24,13 +24,13 @@ const PathForm = () => {
   const { path } = useSelector((state) => state.appState);
   const dispatch = useDispatch();
   const form = useForm<FormValues>({
-    defaultValues : {
-      title: '',
-      html: '',
-      text: '',
+    defaultValues: {
+      title: "",
+      html: "",
+      text: "",
       tags: {
         array: [],
-        tag: '',
+        tag: "",
       },
     },
     mode: "onBlur",
@@ -60,7 +60,7 @@ const PathForm = () => {
       //   console.log("form values", value);
     });
     return () => subscription.unsubscribe;
-  }, [watch, reset, isSubmitSuccessful, setValue, getValues]);
+  }, [dispatch, watch, reset, isSubmitSuccessful, setValue, getValues]);
 
   if (isSubmitSuccessful) {
     // console.log("Submit Successful");
@@ -91,7 +91,11 @@ const PathForm = () => {
           setValue={setValue}
           getValues={getValues}
         />
-        <SubmitBtn isSubmitting={isSubmitting} submitHandler={submitHandler} submitType={'publish'}/>
+        <SubmitBtn
+          isSubmitting={isSubmitting}
+          submitHandler={submitHandler}
+          submitType={"publish"}
+        />
       </form>
       <Preview getValues={getValues} />
     </div>
