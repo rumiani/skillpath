@@ -3,12 +3,9 @@ import * as api from "../../pages/api/api";
 import { pathReducer } from "@/redux/appStateSlice";
 import { Dispatch } from 'redux';
 interface pathType {
-  id:string,
   title:string,
   body:string,
-  length:number,
   tags:string[],
-  url:string
 }
 export const createPath = (path:pathType) => async (dispatch:Dispatch) => {
   try {

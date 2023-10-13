@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import * as api from "../../pages/api/api";
 import { resetPathReducer } from "@/redux/appStateSlice";
-import { Dispatch } from "@reduxjs/toolkit";
+import { Dispatch } from "redux";
 
 export const deletePath = (path: string) => async (dispatch: Dispatch) => {
   try {

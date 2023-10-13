@@ -56,9 +56,9 @@ const Edit_Page_Components = ({path}:{path:pathType}) => {
   const { errors, isSubmitting, isSubmitSuccessful } = formState;
 
   const updateHandler = (data: FormValues) => {
-    const path = { title: data.title, body: data.html, tags: data.tags?.array };
-    if (path.title) {      
-      dispatch(updatePath(router.query.url, path));
+    const path = { title: data.title, body: data.html, tags: data.tags?.array, url:router.query.url };
+    if (path.title && typeof path.url === 'string') {  
+      dispatch(updatePath(path));
     }
   };
 
