@@ -102,4 +102,7 @@ code {
 .preview::backdrop {
   background: white;
 }
+.settings::backdrop{
+  background:rgba(128, 128, 128, 0.575);
+}
 

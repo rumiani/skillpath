@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 
 const navLinks = [
   { name: "Home", link: "/" },
