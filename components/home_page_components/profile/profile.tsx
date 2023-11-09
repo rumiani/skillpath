@@ -4,10 +4,9 @@ import Link from "next/link";
 import { TfiWrite } from "react-icons/tfi";
 import { IoMdOptions } from "react-icons/io";
 import { LuSettings } from "react-icons/lu";
+import PrimaryIcon from "../../icon/primaryIcon/primaryIcon";
 
 const Profile = () => {
-  const formElement = useRef(null);
-
   return (
     <>
       <div className=" bg-gray-200 p-2 my-4 flex flex-row justify-between w-full">
@@ -23,28 +22,15 @@ const Profile = () => {
           </Link>
         </div>
         <div className="p-1">
-          <Link href="/newpath">
-            <TfiWrite
-              title="NEW PATH"
-              className="cursor-pointer my-2 w-7 h-7 hover:bg-gray-300 p-1 rounded-sm"
-            />
-          </Link>
-          <Link href="/setting">
-
-
-
-          <LuSettings
-            title="Settings"
-            className="cursor-pointer  my-2 w-7 h-7 hover:bg-gray-300 p-1 rounded-sm"
-            />
-            </Link>
-          <Link href="/edit-profile">
-
-          <IoMdOptions
-            title="Edit Profile"
-            className="cursor-pointer my-2  w-7 h-7 hover:bg-gray-300 p-1 rounded-sm"
-            />
-            </Link>
+          <PrimaryIcon url="/newpath">
+            <TfiWrite className='text-xl' title="NEW PATH" />
+          </PrimaryIcon>
+          <PrimaryIcon url="/setting">
+            <LuSettings className='text-xl' title="Settings" />
+          </PrimaryIcon>
+          <PrimaryIcon url="/edit-profile">
+            <IoMdOptions className='text-xl' title="Edit Profile" />
+          </PrimaryIcon> 
         </div>
       </div>
     </>

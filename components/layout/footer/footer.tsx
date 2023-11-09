@@ -30,7 +30,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="gen_link"
             >
-              Twitter
+              X
             </Link>
           </div>
           <p className="mt-4 text-sm">

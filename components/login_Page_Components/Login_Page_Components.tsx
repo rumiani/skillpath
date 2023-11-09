@@ -17,8 +17,8 @@ const Login_Page_Components = () => {
         />
       </div>
       <div className="w-full lg:w-1/2">
-        <h2 className="font-bold text-center my-4">Sign up</h2>
-        <LoginForm />
+        <h2 className="font-bold text-center my-4">Log in</h2>
+        {/* <LoginForm />
         <div className="flex flex-row gap-2 my-2 w-fit mx-auto">
           <p>Don&apos;t have an account?</p>
           <Link href={"/signup"} className="text-blue-500 hover:underline">
@@ -29,7 +29,7 @@ const Login_Page_Components = () => {
           <p className="mx-4 mb-0 text-center font-semibold text-gray-400">
             OR
           </p>
-        </div>
+        </div> */}
         <GoogleLoginComp />
       </div>
     </section>

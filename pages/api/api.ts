@@ -1,5 +1,19 @@
-
 export const serverUrl = "http://localhost:5000";
+
+function addAuthHeaders(request) {
+  if (localStorage.getItem("profile")) {
+    request.headers.append(
+      "Authorization",
+      `Bearer ${JSON.parse(localStorage.getItem("profile")).token}`
+    );
+  }
+  return request;
+}
+function fetchWithAuthInterceptor(url, options = {}) {
+  const request = new Request(url, options);
+  const modifiedRequest = addAuthHeaders(request);
+  return fetch(modifiedRequest);
+}
 
 interface pathType {
   title: string;
@@ -7,9 +21,8 @@ interface pathType {
   tags: string[];
 }
 
-
 export const createPath = (path: pathType) => {
-  return fetch(serverUrl + "/newpath", {
+  return fetchWithAuthInterceptor(serverUrl + "/newpath", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(path),
@@ -17,28 +30,26 @@ export const createPath = (path: pathType) => {
 };
 
 export const deletePath = (pathUrl: string) => {
-  return fetch(serverUrl + "/path/" + pathUrl, {
+  return fetchWithAuthInterceptor(serverUrl + "/path/" + pathUrl, {
     method: "DELETE",
   });
 };
 
 export const updatePath = (pathUrl: string, path: pathType) => {
   console.log(path);
-  
-  return fetch(serverUrl + "/path-edit/" + pathUrl, {
+
+  return fetchWithAuthInterceptor(serverUrl + "/path-edit/" + pathUrl, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(path),
   });
 };
-export const getPath = (pathUrl:string) => fetch(pathUrl);
+export const getPath = (pathUrl: string) => fetchWithAuthInterceptor(pathUrl);
 
-
-
-export const login = (user) => {
-  return fetch(serverUrl + "/login", {
+export const login = (credential) => {
+  return fetchWithAuthInterceptor(serverUrl + "/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(user),
+    body: JSON.stringify(credential),
   });
 };

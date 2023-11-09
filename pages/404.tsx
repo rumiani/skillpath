@@ -1,3 +1,4 @@
+import React from "react";
 import Custom404 from "@/components/404_components/custom404";
 import Head from "next/head";
 

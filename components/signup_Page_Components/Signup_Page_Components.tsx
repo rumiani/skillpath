@@ -18,7 +18,7 @@ const Signup_Page_Components = () => {
       </div>
       <div className="w-full lg:w-1/2 px-2 lg:px-4">
         <h2 className="font-bold text-center my-4">Sign up</h2>
-        <SignupForm />
+        {/* <SignupForm />
         <div className="flex flex-row gap-2 my-2 w-fit mx-auto">
           <p>Already have an account?</p>
           <Link href={"/login"} className="text-blue-500 hover:underline">
@@ -31,7 +31,7 @@ const Signup_Page_Components = () => {
             OR
           </p>
         </div>
-        </div>
+        </div> */}
         <GoogleLoginComp />
       </div>
     </section>

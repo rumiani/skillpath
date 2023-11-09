@@ -1,3 +1,4 @@
+import React from 'react';
 import '@/styles/globals.css'
 import 'react-toastify/dist/ReactToastify.css';
 import type { AppProps } from 'next/app'
@@ -5,9 +6,8 @@ import { Provider } from 'react-redux'
 import { store } from '@/redux/store'
 import Layout from '@/components/layout/layout'
 import { GoogleOAuthProvider } from '@react-oauth/google'
-
 export default function App({ Component, pageProps }: AppProps) {
-  console.log('server',process.env.NEXT_PUBLIC_SERVER);
+  // console.log('server',process.env.NEXT_PUBLIC_SERVER);
   
   return (
     <Provider store={store}>
